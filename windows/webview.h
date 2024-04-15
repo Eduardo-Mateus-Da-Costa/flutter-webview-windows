@@ -220,6 +220,7 @@ class Webview {
   wil::com_ptr<ICoreWebView2> webview_;
   wil::com_ptr<ICoreWebView2DevToolsProtocolEventReceiver>
       devtools_protocol_event_receiver_;
+  wil::com_ptr<ICoreWebView2Settings> settings_;
   wil::com_ptr<ICoreWebView2Settings2> settings2_;
   POINT last_cursor_pos_ = {0, 0};
   VirtualKeyState virtual_keys_;
