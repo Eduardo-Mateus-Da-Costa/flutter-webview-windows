@@ -395,7 +395,7 @@ class WebviewController extends ValueNotifier<WebviewValue> {
     }
     assert(value.isInitialized);
     return _methodChannel.invokeMethod(
-        'put_AreDevToolsEnabled', areDevToolsEnabled);
+        'setAreDevToolsEnabled', areDevToolsEnabled);
   }
 
   /// Clears browser cookies.

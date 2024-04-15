@@ -31,6 +31,7 @@ constexpr auto kMethodSetUserAgent = "setUserAgent";
 constexpr auto kMethodSetBackgroundColor = "setBackgroundColor";
 constexpr auto kMethodSetZoomFactor = "setZoomFactor";
 constexpr auto kMethodOpenDevTools = "openDevTools";
+constexpr auto kMethodSetAreDevToolsEnabled = "setAreDevToolsEnabled";
 constexpr auto kMethodSuspend = "suspend";
 constexpr auto kMethodResume = "resume";
 constexpr auto kMethodSetVirtualHostNameMapping = "setVirtualHostNameMapping";
