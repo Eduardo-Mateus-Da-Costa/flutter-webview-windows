@@ -401,7 +401,6 @@ void Webview::RegisterEventHandlers() {
                                                                 ExecuteScript(
                                                                     "window.alert('Download interrompido, erro de rede');",
                                                                         [](bool success, const std::string& result) {});
-                                                                        )
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
                                                                 wil::unique_cotaskmem_string wpath;
