@@ -87,6 +87,8 @@ struct EventRegistrations {
     EventRegistrationToken devtools_protocol_event_token_{};
     EventRegistrationToken new_windows_requested_token_{};
     EventRegistrationToken contains_fullscreen_element_changed_token_{};
+    EventRegistrationToken download_state_changed_token_{};
+    EventRegistrationToken download_starting_token_{};
 };
 
 class Webview {

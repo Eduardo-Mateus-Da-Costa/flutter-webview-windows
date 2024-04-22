@@ -373,57 +373,44 @@ void Webview::RegisterEventHandlers() {
 
     webview4_ = webview_.try_query<ICoreWebView2_4>();
     if (webview4_) {
-        CHECK_FAILURE(webview4_->add_DownloadStarting(
+        webview4_->add_DownloadStarting(
                 Callback<ICoreWebView2DownloadStartingEventHandler>(
                         [this](
                                 ICoreWebView2* sender,
                                 ICoreWebView2DownloadStartingEventArgs* args) -> HRESULT
                         {
-                            auto handleDownload = [this, args]
-                            {
-                                // Use default dialog to handle download. But when download completes, handle callback with the result file path.
-                                wil::com_ptr<ICoreWebView2DownloadOperation> download;
-                                CHECK_FAILURE(args->get_DownloadOperation(&download));
-                                CHECK_FAILURE(download->add_StateChanged(
+                            // Use default dialog to handle download. But when download completes, handle callback with the result file path.
+                            wil::com_ptr<ICoreWebView2DownloadOperation> download;
+                            if (SUCEEDED(args->get_DownloadOperation(&download))) {
+                                download->add_StateChanged(
                                         Callback<ICoreWebView2StateChangedEventHandler>(
-                                                [this](ICoreWebView2DownloadOperation* download,
-                                                       IUnknown* args) -> HRESULT {
+                                                [this](ICoreWebView2DownloadOperation *download,
+                                                       IUnknown *args) -> HRESULT {
                                                     COREWEBVIEW2_DOWNLOAD_STATE downloadState;
-                                                    CHECK_FAILURE(download->get_State(&downloadState));
-                                                    switch (downloadState)
-                                                    {
-                                                        case COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS:
-                                                            break;
-                                                        case COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED:
-                                                            break;
-                                                        case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
-                                                            wil::unique_cotaskmem_string wpath;
-                                                            CHECK_FAILURE(download->get_ResultFilePath(&wpath));
-                                                            if (download_completed_callback_)
-                                                            {
-                                                                const std::string path = util::Utf8FromUtf16(wpath.get());
-                                                                download_completed_callback_(path);
-                                                            }
-                                                            break;
+                                                    if (SUCCEEDED(download->get_State(&downloadState))){
+                                                        switch (downloadState) {
+                                                            case COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS:
+                                                                break;
+                                                            case COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED:
+                                                                break;
+                                                            case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
+                                                                wil::unique_cotaskmem_string wpath;
+                                                                if (download_completed_callback_ && SUCCEEDED(download->get_ResultFilePath(&wpath))) {
+                                                                    const std::string path = util::Utf8FromUtf16(wpath.get());
+                                                                    download_completed_callback_(path);
+                                                                }
+                                                                break;
+                                                        }
                                                     }
                                                     return S_OK;
                                                 })
                                                 .Get(),
-                                        &m_stateChangedToken));
-                            };
-
-                            wil::com_ptr<ICoreWebView2Deferral> deferral;
-                            CHECK_FAILURE(args->GetDeferral(&deferral));
-
-                            m_appWindow->RunAsync([deferral, handleDownload]() {
-                                handleDownload();
-                                CHECK_FAILURE(deferral->Complete());
-                            });
-
+                                        &event_registrations_.download_state_changed_token_);
+                            }
                             return S_OK;
                         })
                         .Get(),
-                &m_downloadStartingToken));
+                &event_registrations_.download_starting_token_);
     }
 }
 
