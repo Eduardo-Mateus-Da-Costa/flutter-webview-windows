@@ -384,29 +384,32 @@ void Webview::RegisterEventHandlers() {
                                 // Use default dialog to handle download. But when download completes, handle callback with the result file path.
                                 wil::com_ptr<ICoreWebView2DownloadOperation> download;
                                 CHECK_FAILURE(args->get_DownloadOperation(&download));
-                                CHECK_FAILURE(download->add_BytesDownloadedChanged(
-                                        Callback<ICoreWebView2BytesDownloadedChangedEventHandler>(
-                                                [this, download](ICoreWebView2DownloadOperation* sender, IUnknown* args) -> HRESULT
-                                                {
-                                                    UpdateProgress(download.get());
-                                                    return S_OK;
-                                                })
-                                                .Get(),
-                                        &m_bytesDownloadedChangedToken));
-                                CHECK_FAILURE(download->add_DownloadOperationCompleted(
-                                        Callback<ICoreWebView2DownloadOperationCompletedHandler>(
-                                                [this, download](ICoreWebView2DownloadOperation* sender, ICoreWebView2DownloadOperationCompletedEventArgs* args) -> HRESULT
-                                                {
-                                                    wil::unique_cotaskmem_string resultFilePath;
-                                                    CHECK_FAILURE(args->get_ResultFilePath(&resultFilePath));
-                                                    if (download_completed_callback_)
+                                CHECK_FAILURE(download->add_StateChanged(
+                                        Callback<ICoreWebView2StateChangedEventHandler>(
+                                                [this](ICoreWebView2DownloadOperation* download,
+                                                       IUnknown* args) -> HRESULT {
+                                                    COREWEBVIEW2_DOWNLOAD_STATE downloadState;
+                                                    CHECK_FAILURE(download->get_State(&downloadState));
+                                                    switch (downloadState)
                                                     {
-                                                        download_completed_callback_(resultFilePath.get());
+                                                        case COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS:
+                                                            break;
+                                                        case COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED:
+                                                            break;
+                                                        case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
+                                                            wil::unique_cotaskmem_string wpath;
+                                                            CHECK_FAILURE(download->get_ResultFilePath(&wpath));
+                                                            if (download_completed_callback_)
+                                                            {
+                                                                const std::string path = util::Utf8FromUtf16(wpath.get());
+                                                                download_completed_callback_(path);
+                                                            }
+                                                            break;
                                                     }
                                                     return S_OK;
                                                 })
                                                 .Get(),
-                                        &m_downloadOperationCompletedToken));
+                                        &m_stateChangedToken));
                             };
 
                             wil::com_ptr<ICoreWebView2Deferral> deferral;
