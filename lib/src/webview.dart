@@ -106,8 +106,17 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   final StreamController<String> _urlStreamController =
       StreamController<String>();
 
+  final StreamController<String?> _onDownloadStreamController =
+      StreamController<String?>();
+
   /// A stream reflecting the current URL.
   Stream<String> get url => _urlStreamController.stream;
+
+  /// A stream reflecting the current download URL.
+  /// This stream will only emit a value if the download is completed.
+  /// The value will be the path to the downloaded file.
+  /// If the download failed, the value will be null.
+  Stream<String?> get onDownload => _onDownloadStreamController.stream;
 
   final StreamController<LoadingState> _loadingStateStreamController =
       StreamController<LoadingState>.broadcast();
@@ -213,6 +222,9 @@ class WebviewController extends ValueNotifier<WebviewValue> {
             break;
           case 'containsFullScreenElementChanged':
             _containsFullScreenElementChangedStreamController.add(map['value']);
+            break;
+          case 'downloadCompleted':
+            _onDownloadStreamController.add(map['value']);
             break;
         }
       });
