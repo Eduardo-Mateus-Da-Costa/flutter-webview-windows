@@ -381,7 +381,7 @@ void Webview::RegisterEventHandlers() {
                         {
                             // Use default dialog to handle download. But when download completes, handle callback with the result file path.
                             wil::com_ptr<ICoreWebView2DownloadOperation> download;
-                            if (SUCEEDED(args->get_DownloadOperation(&download))) {
+                            if (SUCCEEDED(args->get_DownloadOperation(&download))) {
                                 download->add_StateChanged(
                                         Callback<ICoreWebView2StateChangedEventHandler>(
                                                 [this](ICoreWebView2DownloadOperation *download,
