@@ -373,7 +373,7 @@ void Webview::RegisterEventHandlers() {
 
     webview4_ = webview_.try_query<ICoreWebView2_4>();
     if (webview4_) {
-        CHECK_FAILURE(webView4_->add_DownloadStarting(
+        CHECK_FAILURE(webview4_->add_DownloadStarting(
                 Callback<ICoreWebView2DownloadStartingEventHandler>(
                         [this](
                                 ICoreWebView2* sender,
