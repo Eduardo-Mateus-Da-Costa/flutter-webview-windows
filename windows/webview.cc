@@ -415,7 +415,7 @@ void Webview::RegisterEventHandlers() {
                             wil::com_ptr<ICoreWebView2Deferral> deferral;
                             CHECK_FAILURE(args->GetDeferral(&deferral));
 
-                            m_appWindow->RunAsync([deferral, showDialog]() {
+                            m_appWindow->RunAsync([deferral, handleDownload]() {
                                 handleDownload();
                                 CHECK_FAILURE(deferral->Complete());
                             });
