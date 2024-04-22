@@ -379,9 +379,14 @@ void Webview::RegisterEventHandlers() {
                                 ICoreWebView2* sender,
                                 ICoreWebView2DownloadStartingEventArgs* args) -> HRESULT
                         {
-                            args->put_Handled(FALSE);
+                            // Show alert dialog for download
+                            ExecuteScript(
+                                "window.alert('Download iniciando, por favor aguarde a conclusão');",
+                                    [](bool success, const std::string& result) {});
+
                             // Use default dialog to handle download. But when download completes, handle callback with the result file path.
                             wil::com_ptr<ICoreWebView2DownloadOperation> download;
+
                             if (SUCCEEDED(args->get_DownloadOperation(&download))) {
                                 download->add_StateChanged(
                                         Callback<ICoreWebView2StateChangedEventHandler>(
@@ -393,6 +398,10 @@ void Webview::RegisterEventHandlers() {
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS:
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED:
+                                                                ExecuteScript(
+                                                                    "window.alert('Download interrompido, erro de rede');",
+                                                                        [](bool success, const std::string& result) {});
+                                                                        )
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
                                                                 wil::unique_cotaskmem_string wpath;
