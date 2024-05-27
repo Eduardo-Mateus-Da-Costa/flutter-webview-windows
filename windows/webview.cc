@@ -388,13 +388,13 @@ void Webview::RegisterEventHandlers() {
                                 "alertBox.style.top = '20px';"
                                 "alertBox.style.left = '50%';"
                                 "alertBox.style.transform = 'translateX(-50%)';"
-                                "alertBox.style.backgroundColor = '#f44336';"
+                                "alertBox.style.backgroundColor = '#2a38c9';"
                                 "alertBox.style.color = 'white';"
                                 "alertBox.style.padding = '15px';"
                                 "alertBox.style.borderRadius = '5px';"
                                 "alertBox.style.zIndex = '1000';"
                                 "document.body.appendChild(alertBox);"
-                                "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
+                                "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 15000);",
                                 [](bool success, const std::string& result) {});
 
                             // Use default dialog to handle download. But when download completes, handle callback with the result file path.
@@ -418,13 +418,13 @@ void Webview::RegisterEventHandlers() {
                                                                   "alertBox.style.top = '20px';"
                                                                   "alertBox.style.left = '50%';"
                                                                   "alertBox.style.transform = 'translateX(-50%)';"
-                                                                  "alertBox.style.backgroundColor = '#f44336';"
+                                                                  "alertBox.style.backgroundColor = '#2a38c9';"
                                                                   "alertBox.style.color = 'white';"
                                                                   "alertBox.style.padding = '15px';"
                                                                   "alertBox.style.borderRadius = '5px';"
                                                                   "alertBox.style.zIndex = '1000';"
                                                                   "document.body.appendChild(alertBox);"
-                                                                  "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
+                                                                  "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 15000);",
                                                                   [](bool success, const std::string& result) {});
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:

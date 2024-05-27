@@ -7,7 +7,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Ajustes">
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Testes de alert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/windows/webview.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.cc" afterDir="false" />
     </list>
@@ -46,6 +46,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Eduardo-Mateus-Da-Costa"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Eduardo-Mateus-Da-Costa/flutter-webview-windows.git",
+    "accountId": "584e5573-918b-49ba-ac67-b63e7e290830"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -156,9 +168,17 @@
       <updated>1716413050432</updated>
       <workItem from="1716413052202" duration="91000" />
       <workItem from="1716413151681" duration="27000" />
-      <workItem from="1716816224839" duration="419000" />
+      <workItem from="1716816224839" duration="1020000" />
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Testes de alert">
+      <option name="closed" value="true" />
+      <created>1716816763557</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716816763557</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -173,6 +193,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test to handle downloads" />
     <MESSAGE value="Ajustes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes" />
+    <MESSAGE value="Testes de alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testes de alert" />
   </component>
 </project>
