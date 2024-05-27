@@ -380,9 +380,22 @@ void Webview::RegisterEventHandlers() {
                                 ICoreWebView2DownloadStartingEventArgs* args) -> HRESULT
                         {
                             // Show alert dialog for download
+                // Show alert dialog for download
                             ExecuteScript(
-                                "window.alert('Download iniciando, por favor aguarde a conclusão');",
-                                    [](bool success, const std::string& result) {});
+                                "var alertBox = document.createElement('div');"
+                                "alertBox.textContent = 'Download iniciando, por favor aguarde a conclusão';"
+                                "alertBox.style.position = 'fixed';"
+                                "alertBox.style.top = '20px';"
+                                "alertBox.style.left = '50%';"
+                                "alertBox.style.transform = 'translateX(-50%)';"
+                                "alertBox.style.backgroundColor = '#f44336';"
+                                "alertBox.style.color = 'white';"
+                                "alertBox.style.padding = '15px';"
+                                "alertBox.style.borderRadius = '5px';"
+                                "alertBox.style.zIndex = '1000';"
+                                "document.body.appendChild(alertBox);"
+                                "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
+                                [](bool success, const std::string& result) {});
 
                             // Use default dialog to handle download. But when download completes, handle callback with the result file path.
                             wil::com_ptr<ICoreWebView2DownloadOperation> download;
@@ -398,9 +411,21 @@ void Webview::RegisterEventHandlers() {
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS:
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED:
-                                                                ExecuteScript(
-                                                                    "window.alert('Download interrompido, erro de rede');",
-                                                                        [](bool success, const std::string& result) {});
+                                                              ExecuteScript(
+                                                                  "var alertBox = document.createElement('div');"
+                                                                  "alertBox.textContent = 'Download interrompido, erro de rede';"
+                                                                  "alertBox.style.position = 'fixed';"
+                                                                  "alertBox.style.top = '20px';"
+                                                                  "alertBox.style.left = '50%';"
+                                                                  "alertBox.style.transform = 'translateX(-50%)';"
+                                                                  "alertBox.style.backgroundColor = '#f44336';"
+                                                                  "alertBox.style.color = 'white';"
+                                                                  "alertBox.style.padding = '15px';"
+                                                                  "alertBox.style.borderRadius = '5px';"
+                                                                  "alertBox.style.zIndex = '1000';"
+                                                                  "document.body.appendChild(alertBox);"
+                                                                  "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
+                                                                  [](bool success, const std::string& result) {});
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
                                                                 wil::unique_cotaskmem_string wpath;
