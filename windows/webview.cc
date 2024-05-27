@@ -394,7 +394,7 @@ void Webview::RegisterEventHandlers() {
                                 "alertBox.style.borderRadius = '5px';"
                                 "alertBox.style.zIndex = '1000';"
                                 "document.body.appendChild(alertBox);"
-                                "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 15000);",
+                                "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
                                 [](bool success, const std::string& result) {});
 
                             // Use default dialog to handle download. But when download completes, handle callback with the result file path.
@@ -424,7 +424,7 @@ void Webview::RegisterEventHandlers() {
                                                                   "alertBox.style.borderRadius = '5px';"
                                                                   "alertBox.style.zIndex = '1000';"
                                                                   "document.body.appendChild(alertBox);"
-                                                                  "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 15000);",
+                                                                  "setTimeout(function() { alertBox.style.display = 'none'; document.body.removeChild(alertBox); }, 5000);",
                                                                   [](bool success, const std::string& result) {});
                                                                 break;
                                                             case COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED:
