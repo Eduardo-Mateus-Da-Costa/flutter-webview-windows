@@ -165,16 +165,26 @@ void WebviewWindowsPlugin::HandleMethodCall(
 
   if (method_call.method_name().compare(kMethodDispose) == 0) {
     if (const auto texture_id = std::get_if<int64_t>(method_call.arguments())) {
-      const auto it = instances_.find(*texture_id);
-      if (it != instances_.end()) {
-        instances_.erase(it);
-        return result->Success();
-      }
+        return DisposeWebviewInstance(*texture_id, std::move(result));
+    }else {
+        return result->Error(kErrorCodeInvalidId);
     }
     return result->Error(kErrorCodeInvalidId);
   } else {
     result->NotImplemented();
   }
+}
+
+void WebviewWindowsPlugin::DisposeWebviewInstance(int64_t texture_id,
+                                              std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
+const auto it = instances_.find(texture_id);
+if (it != instances_.end()) {
+    it->second->webview()->Close();
+    instances_.erase(it);
+    result->Success();
+} else {
+    result->Error(kErrorCodeInvalidId);
+}
 }
 
 void WebviewWindowsPlugin::CreateWebviewInstance(
