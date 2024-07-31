@@ -182,7 +182,7 @@ void WebviewWindowsPlugin::HandleMethodCall(
                                                       std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
         const auto it = instances_.find(texture_id);
         if (it != instances_.end()) {
-            it->second->webview_()->Close();
+            it->second->webview_->Close();
             instances_.erase(it);
             return result->Success();
         } else {

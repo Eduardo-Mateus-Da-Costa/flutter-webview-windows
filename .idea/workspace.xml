@@ -7,9 +7,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +174,7 @@
       <workItem from="1716816224839" duration="1368000" />
       <workItem from="1722366339856" duration="212000" />
       <workItem from="1722426636339" duration="1312000" />
-      <workItem from="1722431075522" duration="4356000" />
+      <workItem from="1722431075522" duration="4786000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />
@@ -218,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722436297676</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Dispose no webview pra ver se libera o processador">
+      <option name="closed" value="true" />
+      <created>1722453280027</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722453280027</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">

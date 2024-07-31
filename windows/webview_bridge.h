@@ -22,11 +22,11 @@ class WebviewBridge {
   TextureBridge* texture_bridge() const { return texture_bridge_.get(); }
 
   int64_t texture_id() const { return texture_id_; }
+  std::unique_ptr<Webview> webview_;
 
  private:
   std::unique_ptr<flutter::TextureVariant> flutter_texture_;
   std::unique_ptr<TextureBridge> texture_bridge_;
-  std::unique_ptr<Webview> webview_;
   std::unique_ptr<flutter::EventSink<flutter::EncodableValue>> event_sink_;
   std::unique_ptr<flutter::EventChannel<flutter::EncodableValue>>
       event_channel_;
