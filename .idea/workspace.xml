@@ -7,9 +7,8 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Limitando FPS a 20, quem sabe melhora">
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +176,7 @@
       <workItem from="1716816224839" duration="1368000" />
       <workItem from="1722366339856" duration="212000" />
       <workItem from="1722426636339" duration="1312000" />
-      <workItem from="1722431075522" duration="2063000" />
+      <workItem from="1722431075522" duration="4356000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />
@@ -203,7 +202,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722431302338</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Dispose no webview pra ver se libera o processador">
+      <option name="closed" value="true" />
+      <created>1722436012919</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722436012919</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Dispose no webview pra ver se libera o processador">
+      <option name="closed" value="true" />
+      <created>1722436297676</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722436297676</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -220,6 +235,7 @@
     <MESSAGE value="Ajustes" />
     <MESSAGE value="Testes de alert" />
     <MESSAGE value="Limitando FPS a 20, quem sabe melhora" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limitando FPS a 20, quem sabe melhora" />
+    <MESSAGE value="Dispose no webview pra ver se libera o processador" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dispose no webview pra ver se libera o processador" />
   </component>
 </project>
