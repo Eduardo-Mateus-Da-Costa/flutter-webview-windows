@@ -7,7 +7,10 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador" />
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador">
+      <change beforePath="$PROJECT_DIR$/windows/webview.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,7 +177,7 @@
       <workItem from="1716816224839" duration="1368000" />
       <workItem from="1722366339856" duration="212000" />
       <workItem from="1722426636339" duration="1312000" />
-      <workItem from="1722431075522" duration="4786000" />
+      <workItem from="1722431075522" duration="5184000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />
@@ -224,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722453280027</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Dispose no webview pra ver se libera o processador">
+      <option name="closed" value="true" />
+      <created>1722453442224</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722453442224</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">

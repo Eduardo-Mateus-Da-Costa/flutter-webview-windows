@@ -878,3 +878,9 @@ bool Webview::ClearVirtualHostNameMapping(const std::string& hostName) {
     return webview->ClearVirtualHostNameToFolderMapping(
             util::Utf16FromUtf8(hostName).c_str());
 }
+
+void Webview::Close() {
+    if (IsValid()) {
+        webview_controller_->Close();
+    }
+}
