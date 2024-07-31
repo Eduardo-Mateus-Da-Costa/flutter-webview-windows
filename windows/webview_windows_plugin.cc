@@ -71,6 +71,9 @@ class WebviewWindowsPlugin : public flutter::Plugin {
   void HandleMethodCall(
       const flutter::MethodCall<flutter::EncodableValue>& method_call,
       std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
+
+    void DisposeWebviewInstance(int64_t texture_id,
+                                std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
 };
 
 // static
@@ -175,17 +178,17 @@ void WebviewWindowsPlugin::HandleMethodCall(
   }
 }
 
-void WebviewWindowsPlugin::DisposeWebviewInstance(int64_t texture_id,
-                                              std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
-const auto it = instances_.find(texture_id);
-if (it != instances_.end()) {
-    it->second->webview()->Close();
-    instances_.erase(it);
-    result->Success();
-} else {
-    result->Error(kErrorCodeInvalidId);
-}
-}
+    void WebviewWindowsPlugin::DisposeWebviewInstance(int64_t texture_id,
+                                                      std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
+        const auto it = instances_.find(texture_id);
+        if (it != instances_.end()) {
+            it->second->webview()->Close();
+            instances_.erase(it);
+            return result->Success();
+        } else {
+            return result->Error(kErrorCodeInvalidId);
+        }
+    }
 
 void WebviewWindowsPlugin::CreateWebviewInstance(
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
