@@ -281,6 +281,18 @@ class WebviewController extends ValueNotifier<WebviewValue> {
       _isDisposed = true;
       await _eventStreamSubscription?.cancel();
       await _pluginChannel.invokeMethod('dispose', _textureId);
+      await _cursorStreamController.close();
+      await _urlStreamController.close();
+      await _loadingStateStreamController.close();
+      await _historyChangedStreamController.close();
+      await _securityStateChangedStreamController.close();
+      await _titleStreamController.close();
+      await _webMessageStreamController.close();
+      await _containsFullScreenElementChangedStreamController.close();
+      await _onDownloadStreamController.close();
+      await _onLoadErrorStreamController.close();
+      _methodChannel.setMethodCallHandler(null);
+      _eventChannel.receiveBroadcastStream().listen(null);
     }
     super.dispose();
   }
@@ -603,12 +615,15 @@ class Webview extends StatefulWidget {
   /// unless specifying a [scaleFactor].
   final FilterQuality filterQuality;
 
-  const Webview(this.controller,
-      {this.width,
+  const Webview(
+      this.controller, {
+      this.width,
       this.height,
       this.permissionRequested,
       this.scaleFactor,
-      this.filterQuality = FilterQuality.none});
+      this.filterQuality = FilterQuality.none,
+      Key? key
+      }) : super(key: key);
 
   @override
   _WebviewState createState() => _WebviewState();
@@ -638,6 +653,9 @@ class _WebviewState extends State<Webview> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _reportSurfaceSize());
 
     _cursorSubscription = _controller._cursor.listen((cursor) {
+      if (!mounted) {
+        return;
+      }
       setState(() {
         _cursor = cursor;
       });
@@ -646,6 +664,9 @@ class _WebviewState extends State<Webview> {
 
   @override
   Widget build(BuildContext context) {
+    if (_controller._isDisposed) {
+      return const SizedBox();
+    }
     return (widget.height != null && widget.width != null)
         ? SizedBox(
             key: _key,
@@ -658,13 +679,19 @@ class _WebviewState extends State<Webview> {
   Widget _buildInner() {
     return NotificationListener<SizeChangedLayoutNotification>(
         onNotification: (notification) {
+          if (!mounted) {
+            return false;
+          }
           _reportSurfaceSize();
           return true;
         },
         child: SizeChangedLayoutNotifier(
-            child: _controller.value.isInitialized
+            child: _controller.value.isInitialized && mounted
                 ? Listener(
                     onPointerHover: (ev) {
+                      if (!mounted) {
+                        return;
+                      }
                       // ev.kind is for whatever reason not set to touch
                       // even on touch input
                       if (_pointerKind == PointerDeviceKind.touch) {
@@ -674,6 +701,9 @@ class _WebviewState extends State<Webview> {
                       _controller._setCursorPos(ev.localPosition);
                     },
                     onPointerDown: (ev) {
+                      if (!mounted) {
+                        return;
+                      }
                       _pointerKind = ev.kind;
                       if (ev.kind == PointerDeviceKind.touch) {
                         _controller._setPointerUpdate(
@@ -689,6 +719,9 @@ class _WebviewState extends State<Webview> {
                       _controller._setPointerButtonState(button, true);
                     },
                     onPointerUp: (ev) {
+                      if (!mounted) {
+                        return;
+                      }
                       _pointerKind = ev.kind;
                       if (ev.kind == PointerDeviceKind.touch) {
                         _controller._setPointerUpdate(
@@ -705,6 +738,9 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerCancel: (ev) {
+                      if (!mounted) {
+                        return;
+                      }
                       _pointerKind = ev.kind;
                       final button = _downButtons.remove(ev.pointer);
                       if (button != null) {
@@ -712,6 +748,9 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerMove: (ev) {
+                      if (!mounted) {
+                        return;
+                      }
                       _pointerKind = ev.kind;
                       if (ev.kind == PointerDeviceKind.touch) {
                         _controller._setPointerUpdate(
@@ -725,12 +764,18 @@ class _WebviewState extends State<Webview> {
                       }
                     },
                     onPointerSignal: (signal) {
+                      if (!mounted) {
+                        return;
+                      }
                       if (signal is PointerScrollEvent) {
                         _controller._setScrollDelta(
                             -signal.scrollDelta.dx, -signal.scrollDelta.dy);
                       }
                     },
                     onPointerPanZoomUpdate: (signal) {
+                      if (!mounted) {
+                        return;
+                      }
                       _controller._setScrollDelta(
                           signal.panDelta.dx, signal.panDelta.dy);
                     },
@@ -745,11 +790,14 @@ class _WebviewState extends State<Webview> {
   }
 
   void _reportSurfaceSize() async {
+    if (!mounted) {
+      return;
+    }
     final box = _key.currentContext?.findRenderObject() as RenderBox?;
     if (box != null) {
       await _controller.ready;
       unawaited(_controller._setSize(
-          box.size, widget.scaleFactor ?? window.devicePixelRatio));
+          box.size, widget.scaleFactor ?? View.of(context).devicePixelRatio));
     }
   }
 
