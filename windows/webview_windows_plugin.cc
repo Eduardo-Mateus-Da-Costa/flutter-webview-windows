@@ -172,7 +172,6 @@ void WebviewWindowsPlugin::HandleMethodCall(
     }else {
         return result->Error(kErrorCodeInvalidId);
     }
-    return result->Error(kErrorCodeInvalidId);
   } else {
     result->NotImplemented();
   }
