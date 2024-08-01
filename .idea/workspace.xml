@@ -7,16 +7,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Dispose no webview pra ver se libera o processador">
-      <change afterPath="$PROJECT_DIR$/example/android/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/webview_windows_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/webview_windows_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/webview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/webview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webview_windows.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webview_windows.iml" afterDir="false" />
-    </list>
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Disposing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -254,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722453794753</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Disposing">
+      <option name="closed" value="true" />
+      <created>1722514491637</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722514491637</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -272,7 +271,8 @@
     <MESSAGE value="Testes de alert" />
     <MESSAGE value="Limitando FPS a 20, quem sabe melhora" />
     <MESSAGE value="Dispose no webview pra ver se libera o processador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dispose no webview pra ver se libera o processador" />
+    <MESSAGE value="Disposing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disposing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

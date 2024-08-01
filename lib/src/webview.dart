@@ -626,10 +626,10 @@ class Webview extends StatefulWidget {
       }) : super(key: key);
 
   @override
-  _WebviewState createState() => _WebviewState();
+  WebviewState createState() => WebviewState();
 }
 
-class _WebviewState extends State<Webview> {
+class WebviewState extends State<Webview> {
   final GlobalKey _key = GlobalKey();
   final _downButtons = <int, PointerButton>{};
 
