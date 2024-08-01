@@ -805,5 +805,7 @@ class WebviewState extends State<Webview> {
   void dispose() {
     super.dispose();
     _cursorSubscription?.cancel();
+    // unregister callbacks
+    _controller._permissionRequested = null;
   }
 }

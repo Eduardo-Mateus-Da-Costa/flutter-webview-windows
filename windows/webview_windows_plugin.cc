@@ -184,6 +184,8 @@ void WebviewWindowsPlugin::HandleMethodCall(
         if (it != instances_.end()) {
             it->second->webview_->Close();
             instances_.erase(it);
+            //unregister textures
+            textures_->UnregisterTexture(texture_id);
             return result->Success();
         } else {
             return result->Error(kErrorCodeInvalidId);
