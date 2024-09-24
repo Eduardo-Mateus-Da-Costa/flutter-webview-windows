@@ -232,8 +232,6 @@ class WebviewController extends ValueNotifier<WebviewValue> {
             _onDownloadStreamController.add(map['value']);
             break;
           case 'popupRequest':
-            print(map['value']);
-            print(map['value'].runtimeType);
             _onPopupRequestStreamController.add(map['value']);
             break;
         }
