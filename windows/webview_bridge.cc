@@ -42,7 +42,7 @@ constexpr auto kMethodClearCache = "clearCache";
 constexpr auto kMethodSetCacheDisabled = "setCacheDisabled";
 constexpr auto kMethodSetPopupWindowPolicy = "setPopupWindowPolicy";
 constexpr auto kMethodSetFpsLimit = "setFpsLimit";
-constexpr auto kMethodBackFromPopUp = "backFromPopUp";
+constexpr auto kMethodBackFromPopUp = "backFromPopup";
 
 constexpr auto kEventType = "type";
 constexpr auto kEventValue = "value";
