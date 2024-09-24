@@ -3,17 +3,36 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
   <component name="CMakeSettings">
     <configurations />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Testes de alert">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/webview_windows_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/webview_windows_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/webview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/webview.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webview_windows.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webview_windows.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/windows/webview.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview_bridge.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_bridge.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileEditorManager">
     <leaf>
@@ -40,23 +59,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Eduardo-Mateus-Da-Costa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Eduardo-Mateus-Da-Costa&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Eduardo-Mateus-Da-Costa/flutter-webview-windows.git",
-    "accountId": "584e5573-918b-49ba-ac67-b63e7e290830"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Eduardo-Mateus-Da-Costa/flutter-webview-windows.git&quot;,
+    &quot;accountId&quot;: &quot;584e5573-918b-49ba-ac67-b63e7e290830&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -83,8 +102,8 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "test",
-    "last_opened_file_path": "D:/trabalho/datacertify/flutter-webview-windows",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/trabalho/datacertify/flutter-webview-windows/windows/CMakeLists.txt",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -93,7 +112,17 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SwiftWorkspaceSettings">
+    <option name="detectedToolchain" value="true" />
+  </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Test to handle downloads">
       <option name="closed" value="true" />
@@ -168,6 +197,10 @@
       <workItem from="1716413052202" duration="91000" />
       <workItem from="1716413151681" duration="27000" />
       <workItem from="1716816224839" duration="1368000" />
+      <workItem from="1724332732633" duration="250000" />
+      <workItem from="1724333836860" duration="22000" />
+      <workItem from="1725471009246" duration="120000" />
+      <workItem from="1727190973564" duration="1227000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />

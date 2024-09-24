@@ -42,6 +42,7 @@ constexpr auto kMethodClearCache = "clearCache";
 constexpr auto kMethodSetCacheDisabled = "setCacheDisabled";
 constexpr auto kMethodSetPopupWindowPolicy = "setPopupWindowPolicy";
 constexpr auto kMethodSetFpsLimit = "setFpsLimit";
+constexpr auto kMethodBackFromPopUp = "backFromPopUp";
 
 constexpr auto kEventType = "type";
 constexpr auto kEventValue = "value";
@@ -214,6 +215,20 @@ void WebviewBridge::RegisterEventHandlers() {
         {flutter::EncodableValue(kEventType),
          flutter::EncodableValue("downloadCompleted")},
         {flutter::EncodableValue(kEventValue), flutter::EncodableValue(download_path)},
+    });
+    EmitEvent(event);
+  });
+
+  webview_->OnPopupWindowRequested([this](const std::string& url, const std::string& frame_name, const std::string& features, bool is_user_initiated) {
+    const auto event = flutter::EncodableValue(flutter::EncodableMap{
+        {flutter::EncodableValue(kEventType),
+         flutter::EncodableValue("popupRequest")},
+        {flutter::EncodableValue(kEventValue), flutter::EncodableValue(flutter::EncodableMap{
+            {flutter::EncodableValue("url"), flutter::EncodableValue(url)},
+            {flutter::EncodableValue("frameName"), flutter::EncodableValue(frame_name)},
+            {flutter::EncodableValue("features"), flutter::EncodableValue(features)},
+            {flutter::EncodableValue("isUserInitiated"), flutter::EncodableValue(is_user_initiated)},
+        })},
     });
     EmitEvent(event);
   });
@@ -639,6 +654,14 @@ void WebviewBridge::HandleMethodCall(
       return result->Success();
     }
     return result->Error(kMethodFailed);
+  }
+
+    // backFromPopUp
+  if (method_name.compare(kMethodBackFromPopUp) == 0) {
+     if (webview_->BackFromPopUp()) {
+       return result->Success();
+     }
+     return result->Error(kMethodFailed);
   }
 
   // clearCookies

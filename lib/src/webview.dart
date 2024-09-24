@@ -109,6 +109,9 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   final StreamController<String?> _onDownloadStreamController =
       StreamController<String?>();
 
+  final StreamController<String?> _onPopupRequestStreamController =
+      StreamController<String?>();
+
   /// A stream reflecting the current URL.
   Stream<String> get url => _urlStreamController.stream;
 
@@ -117,6 +120,8 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   /// The value will be the path to the downloaded file.
   /// If the download failed, the value will be null.
   Stream<String?> get onDownload => _onDownloadStreamController.stream;
+
+  Stream<String?> get onPopupRequest => _onPopupRequestStreamController.stream;
 
   final StreamController<LoadingState> _loadingStateStreamController =
       StreamController<LoadingState>.broadcast();
@@ -226,6 +231,9 @@ class WebviewController extends ValueNotifier<WebviewValue> {
           case 'downloadCompleted':
             _onDownloadStreamController.add(map['value']);
             break;
+          case 'popupRequest':
+            _onPopupRequestStreamController.add(map['value']);
+            break;
         }
       });
 
@@ -301,6 +309,14 @@ class WebviewController extends ValueNotifier<WebviewValue> {
     }
     assert(value.isInitialized);
     return _methodChannel.invokeMethod('loadStringContent', content);
+  }
+
+  Future<void> backFromPopup() async {
+    if (_isDisposed) {
+      return;
+    }
+    assert(value.isInitialized);
+    return _methodChannel.invokeMethod('backFromPopup');
   }
 
   /// Reloads the current document.

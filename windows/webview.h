@@ -97,6 +97,9 @@ public:
 
     typedef std::function<void(const std::string&)> UrlChangedCallback;
     typedef std::function<void(const std::string&)> OnDownloadCompletedCallback;
+    typedef std::function<void(
+            const std::string& url, const std::string& frame_name, const std::string&  features, bool is_user_initiated
+            )>OnPopupWindowRequestedCallback;
     typedef std::function<void(WebviewLoadingState)> LoadingStateChangedCallback;
     typedef std::function<void(COREWEBVIEW2_WEB_ERROR_STATUS)>
             OnLoadErrorCallback;
@@ -154,6 +157,7 @@ public:
     bool SetUserAgent(const std::string& user_agent);
     bool SetAreDevToolsEnabled(bool areDevToolsEnabled);
     bool OpenDevTools();
+    bool BackFromPopup();
     bool SetBackgroundColor(int32_t color);
     bool SetZoomFactor(double factor);
     bool Suspend();
@@ -170,6 +174,10 @@ public:
 
     void OnDownloadCompleted(OnDownloadCompletedCallback callback) {
         download_completed_callback_ = std::move(callback);
+    }
+
+    void OnPopupWindowRequested(OnPopupWindowRequestedCallback callback) {
+        popup_window_requested_callback_ = std::move(callback);
     }
 
     void OnLoadError(OnLoadErrorCallback callback) {
@@ -244,6 +252,7 @@ private:
 
     UrlChangedCallback url_changed_callback_;
     OnDownloadCompletedCallback download_completed_callback_;
+    OnPopupWindowRequestedCallback popup_window_requested_callback_;
     LoadingStateChangedCallback loading_state_changed_callback_;
     OnLoadErrorCallback on_load_error_callback_;
     HistoryChangedCallback history_changed_callback_;
