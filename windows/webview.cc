@@ -357,8 +357,11 @@ void Webview::RegisterEventHandlers() {
                                     BOOL is_user_initiated;
                                     args->get_IsUserInitiated(&is_user_initiated);
 
+                                    std::wstring w_uri(uri.get());
+                                    std::string s_uri(w_uri.begin(), w_uri.end());
+
                                     popup_window_requested_callback_(
-                                            uri.get(), // Handle the URI
+                                            s_uri, // Handle the URI
                                             L"", // Placeholder for FrameName
                                             nullptr, // Placeholder for WindowFeatures
                                             is_user_initiated == TRUE
