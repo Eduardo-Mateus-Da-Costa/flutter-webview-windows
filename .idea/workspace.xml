@@ -16,16 +16,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Testes de alert">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/webview_windows_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/webview_windows_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/webview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/webview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webview_windows.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webview_windows.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview_bridge.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_bridge.cc" afterDir="false" />
-    </list>
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Tentando monitorar os popups" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +191,7 @@
       <workItem from="1724332732633" duration="250000" />
       <workItem from="1724333836860" duration="22000" />
       <workItem from="1725471009246" duration="120000" />
-      <workItem from="1727190973564" duration="1227000" />
+      <workItem from="1727190973564" duration="1763000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />
@@ -218,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716817265240</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Tentando monitorar os popups">
+      <option name="closed" value="true" />
+      <created>1727192449507</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727192449507</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -234,6 +233,7 @@
     <MESSAGE value="Test to handle downloads" />
     <MESSAGE value="Ajustes" />
     <MESSAGE value="Testes de alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testes de alert" />
+    <MESSAGE value="Tentando monitorar os popups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tentando monitorar os popups" />
   </component>
 </project>

@@ -341,8 +341,7 @@ void Webview::RegisterEventHandlers() {
 
     webview_->add_NewWindowRequested(
             Callback<ICoreWebView2NewWindowRequestedEventHandler>(
-                    [this](ICoreWebView2* sender,
-                           ICoreWebView2NewWindowRequestedEventArgs* args) -> HRESULT {
+                    [this](ICoreWebView2* sender, ICoreWebView2NewWindowRequestedEventArgs* args) -> HRESULT {
                         switch (popup_window_policy_) {
                             case WebviewPopupWindowPolicy::Deny:
                                 args->put_Handled(TRUE);
@@ -350,14 +349,20 @@ void Webview::RegisterEventHandlers() {
                             case WebviewPopupWindowPolicy::ShowInSameWindow:
                                 args->put_NewWindow(webview_.get());
                                 args->put_Handled(TRUE);
-                                if (popup_window_requested_callback_) {
-                                    popup_window_requested_callback_(
-                                            args->get_Uri().get(),
-                                            args->get_FrameName().get(),
-                                            args->get_WindowFeatures().get(),
-                                            args->get_IsUserInitiated() == TRUE
-                                    );
 
+                                if (popup_window_requested_callback_) {
+                                    wil::unique_cotaskmem_string uri;
+                                    args->get_Uri(&uri);
+
+                                    BOOL is_user_initiated;
+                                    args->get_IsUserInitiated(&is_user_initiated);
+
+                                    popup_window_requested_callback_(
+                                            uri.get(), // Handle the URI
+                                            L"", // Placeholder for FrameName
+                                            nullptr, // Placeholder for WindowFeatures
+                                            is_user_initiated == TRUE
+                                    );
                                 }
                                 break;
                         }
@@ -497,7 +502,7 @@ bool Webview::BackFromPopup() {
     if (!IsValid()) {
         return false;
     }
-    return webview_->MoveFocus(COREWEBVIEW2_MOVE_FOCUS_REASON_NEXT) == S_OK;
+    return webview_controller_->MoveFocus(COREWEBVIEW2_MOVE_FOCUS_REASON_NEXT) == S_OK;
 }
 
 bool Webview::ClearCookies() {
