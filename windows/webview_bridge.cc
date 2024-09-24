@@ -655,7 +655,7 @@ void WebviewBridge::HandleMethodCall(
 
     // backFromPopUp
   if (method_name.compare(kMethodBackFromPopUp) == 0) {
-     if (webview_->BackFromPopUp()) {
+     if (webview_->BackFromPopup()) {
        return result->Success();
      }
      return result->Error(kMethodFailed);
