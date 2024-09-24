@@ -219,14 +219,11 @@ void WebviewBridge::RegisterEventHandlers() {
     EmitEvent(event);
   });
 
-  webview_->OnPopupWindowRequested([this](const std::string& url, const std::string& frame_name, const std::string& features, bool is_user_initiated) {
+  webview_->OnPopupWindowRequested([this](bool is_user_initiated) {
     const auto event = flutter::EncodableValue(flutter::EncodableMap{
         {flutter::EncodableValue(kEventType),
          flutter::EncodableValue("popupRequest")},
         {flutter::EncodableValue(kEventValue), flutter::EncodableValue(flutter::EncodableMap{
-            {flutter::EncodableValue("url"), flutter::EncodableValue(url)},
-            {flutter::EncodableValue("frameName"), flutter::EncodableValue(frame_name)},
-            {flutter::EncodableValue("features"), flutter::EncodableValue(features)},
             {flutter::EncodableValue("isUserInitiated"), flutter::EncodableValue(is_user_initiated)},
         })},
     });

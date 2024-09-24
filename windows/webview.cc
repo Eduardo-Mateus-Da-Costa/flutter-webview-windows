@@ -345,27 +345,16 @@ void Webview::RegisterEventHandlers() {
                         switch (popup_window_policy_) {
                             case WebviewPopupWindowPolicy::Deny:
                                 args->put_Handled(TRUE);
+                                if (popup_window_requested_callback_) {
+                                    popup_window_requested_callback_(TRUE);
+                                }
                                 break;
                             case WebviewPopupWindowPolicy::ShowInSameWindow:
                                 args->put_NewWindow(webview_.get());
                                 args->put_Handled(TRUE);
 
                                 if (popup_window_requested_callback_) {
-                                    wil::unique_cotaskmem_string uri;
-                                    args->get_Uri(&uri);
-
-                                    BOOL is_user_initiated;
-                                    args->get_IsUserInitiated(&is_user_initiated);
-
-                                    std::wstring w_uri(uri.get());
-                                    std::string s_uri(w_uri.begin(), w_uri.end());
-
-                                    popup_window_requested_callback_(
-                                            s_uri, // Handle the URI
-                                            L"", // Placeholder for FrameName
-                                            nullptr, // Placeholder for WindowFeatures
-                                            is_user_initiated == TRUE
-                                    );
+                                    popup_window_requested_callback_(TRUE);
                                 }
                                 break;
                         }

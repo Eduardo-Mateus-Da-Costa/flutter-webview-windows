@@ -109,8 +109,8 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   final StreamController<String?> _onDownloadStreamController =
       StreamController<String?>();
 
-  final StreamController<String?> _onPopupRequestStreamController =
-      StreamController<String?>();
+  final StreamController<bool?> _onPopupRequestStreamController =
+      StreamController<bool?>();
 
   /// A stream reflecting the current URL.
   Stream<String> get url => _urlStreamController.stream;
@@ -121,7 +121,7 @@ class WebviewController extends ValueNotifier<WebviewValue> {
   /// If the download failed, the value will be null.
   Stream<String?> get onDownload => _onDownloadStreamController.stream;
 
-  Stream<String?> get onPopupRequest => _onPopupRequestStreamController.stream;
+  Stream<bool?> get onPopupRequest => _onPopupRequestStreamController.stream;
 
   final StreamController<LoadingState> _loadingStateStreamController =
       StreamController<LoadingState>.broadcast();

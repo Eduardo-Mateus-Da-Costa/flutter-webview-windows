@@ -97,9 +97,7 @@ public:
 
     typedef std::function<void(const std::string&)> UrlChangedCallback;
     typedef std::function<void(const std::string&)> OnDownloadCompletedCallback;
-    typedef std::function<void(
-            const std::string& url, const std::string& frame_name, const std::string&  features, bool is_user_initiated
-            )>OnPopupWindowRequestedCallback;
+    typedef std::function<void(bool)>OnPopupWindowRequestedCallback;
     typedef std::function<void(WebviewLoadingState)> LoadingStateChangedCallback;
     typedef std::function<void(COREWEBVIEW2_WEB_ERROR_STATUS)>
             OnLoadErrorCallback;
