@@ -222,6 +222,7 @@ public:
             ContainsFullScreenElementChangedCallback callback) {
         contains_fullscreen_element_changed_callback_ = std::move(callback);
     }
+    void Close();
 
 private:
     HWND hwnd_;

@@ -11,6 +11,7 @@
 
 namespace {
 const int kNumBuffers = 1;
+const int kDefaultFpsLimit = 20;
 }  // namespace
 
 TextureBridge::TextureBridge(GraphicsContext* graphics_context,
@@ -31,6 +32,8 @@ TextureBridge::TextureBridge(GraphicsContext* graphics_context,
           })
           .Get(),
       &on_closed_token_);
+
+  SetFpsLimit(kDefaultFpsLimit);
 }
 
 TextureBridge::~TextureBridge() {

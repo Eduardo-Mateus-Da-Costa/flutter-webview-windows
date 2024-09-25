@@ -71,6 +71,9 @@ class WebviewWindowsPlugin : public flutter::Plugin {
   void HandleMethodCall(
       const flutter::MethodCall<flutter::EncodableValue>& method_call,
       std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
+
+    void DisposeWebviewInstance(int64_t texture_id,
+                                std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result);
 };
 
 // static
@@ -165,17 +168,28 @@ void WebviewWindowsPlugin::HandleMethodCall(
 
   if (method_call.method_name().compare(kMethodDispose) == 0) {
     if (const auto texture_id = std::get_if<int64_t>(method_call.arguments())) {
-      const auto it = instances_.find(*texture_id);
-      if (it != instances_.end()) {
-        instances_.erase(it);
-        return result->Success();
-      }
+        return DisposeWebviewInstance(*texture_id, std::move(result));
+    }else {
+        return result->Error(kErrorCodeInvalidId);
     }
-    return result->Error(kErrorCodeInvalidId);
   } else {
     result->NotImplemented();
   }
 }
+
+    void WebviewWindowsPlugin::DisposeWebviewInstance(int64_t texture_id,
+                                                      std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
+        const auto it = instances_.find(texture_id);
+        if (it != instances_.end()) {
+            it->second->webview_->Close();
+            instances_.erase(it);
+            //unregister textures
+            textures_->UnregisterTexture(texture_id);
+            return result->Success();
+        } else {
+            return result->Error(kErrorCodeInvalidId);
+        }
+    }
 
 void WebviewWindowsPlugin::CreateWebviewInstance(
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
