@@ -350,8 +350,12 @@ void Webview::RegisterEventHandlers() {
                                 }
                                 break;
                             case WebviewPopupWindowPolicy::ShowInSameWindow:
-                                args->put_NewWindow(webview_.get());
+                                wil::unique_cotaskmem_string popup_url;
+                                args->get_Uri(&popup_url);
                                 args->put_Handled(TRUE);
+
+                                // Navigate to the popup URL in the same window.
+                                webview_->Navigate(popup_url.get());
 
                                 if (popup_window_requested_callback_) {
                                     popup_window_requested_callback_(TRUE);
