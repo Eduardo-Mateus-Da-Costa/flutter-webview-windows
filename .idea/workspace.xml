@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
 }</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
@@ -17,10 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="60 default fps">
+      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/windows/runner/Runner.rc" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/runner/Runner.rc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webview_windows.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webview_windows.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview_host.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_host.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/graphics_context.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/graphics_context.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview_platform.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_platform.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +87,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Eduardo-Mateus-Da-Costa/flutter-webview-windows.git&quot;,
-    &quot;accountId&quot;: &quot;584e5573-918b-49ba-ac67-b63e7e290830&quot;
+    &quot;accountId&quot;: &quot;ad447e07-0e69-4943-975f-cda0be749ea0&quot;
   }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -93,21 +112,29 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Flutter.example/lib/main.dart.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.west.config.association.type.startup.service&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.advertisement.text.has.clang-format&quot;: &quot;true&quot;,
     &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/trabalho/datacertify/flutter-webview-windows/windows/CMakeLists.txt&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/pessoal/flutter-webview-windows&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -202,6 +229,8 @@
       <workItem from="1727190973564" duration="4235000" />
       <workItem from="1727287192509" duration="1360000" />
       <workItem from="1727355763054" duration="765000" />
+      <workItem from="1753700939069" duration="1092000" />
+      <workItem from="1753706701030" duration="34000" />
     </task>
     <task id="LOCAL-00009" summary="Testes de alert">
       <option name="closed" value="true" />
@@ -313,5 +342,9 @@
     <MESSAGE value="Tentando monitorar os popups" />
     <MESSAGE value="60 default fps" />
     <option name="LAST_COMMIT_MESSAGE" value="60 default fps" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

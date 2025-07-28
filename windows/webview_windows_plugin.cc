@@ -4,7 +4,7 @@
 #include <flutter/plugin_registrar_windows.h>
 #include <flutter/standard_method_codec.h>
 #include <windows.h>
-
+#include <cstdio>
 #include <memory>
 #include <string>
 #include <unordered_map>
@@ -244,10 +244,16 @@ void WebviewWindowsPlugin::CreateWebviewInstance(
 }
 
 bool WebviewWindowsPlugin::InitPlatform() {
-  if (!platform_) {
-    platform_ = std::make_unique<WebviewPlatform>();
-  }
-  return platform_->IsSupported();
+    HRESULT hr = CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
+    if (hr == RPC_E_CHANGED_MODE) {
+        printf("COM já inicializado em modo diferente.\n");
+        fflush(stdout);
+    }
+
+    if (!platform_) {
+        platform_ = std::make_unique<WebviewPlatform>();
+    }
+    return platform_->IsSupported();
 }
 
 }  // namespace

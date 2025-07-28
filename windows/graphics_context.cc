@@ -1,11 +1,13 @@
 #include "graphics_context.h"
-
+#include <cstdio>
 #include "util/d3dutil.h"
 #include "util/direct3d11.interop.h"
 
 GraphicsContext::GraphicsContext(rx::RoHelper* rohelper) : rohelper_(rohelper) {
   device_ = CreateD3DDevice();
   if (!device_) {
+      printf("Creating D3D11 device failed.\n");
+      fflush(stdout);
     return;
   }
 
@@ -13,6 +15,8 @@ GraphicsContext::GraphicsContext(rx::RoHelper* rohelper) : rohelper_(rohelper) {
   if (FAILED(util::CreateDirect3D11DeviceFromDXGIDevice(
           device_.try_as<IDXGIDevice>().get(),
           (IInspectable**)device_winrt_.put()))) {
+      printf("Creating Direct3D11 device from DXGI device failed.\n");
+      fflush(stdout);
     return;
   }
 
