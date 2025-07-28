@@ -22,20 +22,9 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="60 default fps">
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c5b15e79-6f68-41be-bf2c-6563ed37069b" name="Changes" comment="Find correct Start thread, multi plugin bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/windows/runner/Runner.rc" beforeDir="false" afterPath="$PROJECT_DIR$/example/windows/runner/Runner.rc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webview_windows.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webview_windows.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/graphics_context.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/graphics_context.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview_platform.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_platform.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_windows_plugin.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/webview_host.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/webview_host.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727287351130</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Find correct Start thread, multi plugin bug">
+      <option name="closed" value="true" />
+      <created>1753709345542</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1753709345542</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -341,7 +338,8 @@
     <MESSAGE value="Testes de alert" />
     <MESSAGE value="Tentando monitorar os popups" />
     <MESSAGE value="60 default fps" />
-    <option name="LAST_COMMIT_MESSAGE" value="60 default fps" />
+    <MESSAGE value="Find correct Start thread, multi plugin bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Find correct Start thread, multi plugin bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

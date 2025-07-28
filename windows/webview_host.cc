@@ -1,7 +1,7 @@
 #include "webview_host.h"
 
 #include <wrl.h>
-
+#include <cstdio>
 #include <future>
 #include <iostream>
 
@@ -14,12 +14,22 @@ std::unique_ptr<WebviewHost> WebviewHost::Create(
     WebviewPlatform* platform, std::optional<std::wstring> user_data_directory,
     std::optional<std::wstring> browser_exe_path,
     std::optional<std::string> arguments) {
-  wil::com_ptr<CoreWebView2EnvironmentOptions> opts;
-  if (arguments.has_value()) {
-    opts = Microsoft::WRL::Make<CoreWebView2EnvironmentOptions>();
-    std::wstring warguments(arguments.value().begin(), arguments.value().end());
-    opts->put_AdditionalBrowserArguments(warguments.c_str());
-  }
+    wil::com_ptr<CoreWebView2EnvironmentOptions> opts = Microsoft::WRL::Make<CoreWebView2EnvironmentOptions>();
+
+    // Ativa renderização Skia + otimizações
+    std::wstring defaultArgs = L"--enable-features=UseSkiaRenderer --disable-features=CalculateNativeWinOcclusion";
+
+    // Se já veio argumento externo, concatena
+    if (arguments.has_value()) {
+        std::wstring warguments(arguments.value().begin(), arguments.value().end());
+        defaultArgs += L" ";
+        defaultArgs += warguments;
+    }
+
+  // Aqui você pode condicionar fallback CPU se necessário
+  // Exemplo: se detectar driver ruim -> defaultArgs += L" --disable-gpu";
+
+  opts->put_AdditionalBrowserArguments(defaultArgs.c_str());
 
   std::promise<HRESULT> result_promise;
   wil::com_ptr<ICoreWebView2Environment> env;
@@ -35,6 +45,9 @@ std::unique_ptr<WebviewHost> WebviewHost::Create(
             return S_OK;
           })
           .Get());
+
+    printf("CreateCoreWebView2EnvironmentWithOptions called with args: %ls\n", defaultArgs.c_str());
+    fflush(stdout);
 
   if (SUCCEEDED(result)) {
     result = result_promise.get_future().get();
